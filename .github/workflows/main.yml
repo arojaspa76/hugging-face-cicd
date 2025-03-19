@@ -2,22 +2,32 @@ name: Sync to arojaspa Hugging Face hub
 on:
   push:
     branches: [main]
-
-  # to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  sync-to-hub:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Add remote 
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Installing packages
+        run: make install
+
+      - name: Add git remote
         env:
-          HG: ${{ secrets.HG }}
-        run: git remote add space https://arojaspa:$HG@huggingface.co/spaces/arojaspa/huggingface-demo1
-      - name: Push to hub
+          HF_TOKEN: ${{ secrets.HG}}
+        run: git remote add space https://$HF_TOKEN@huggingface.co/spaces/arojaspa/huggingface-demo1
+          
+      - name: Push to Hugging Face Space
         env:
-          HG: ${{ secrets.HG }}
-        run: git push --force https://arojaspa:$HG@huggingface.co/spaces/arojaspa/huggingface-demo1 main
+          HF_TOKEN: ${{ secrets.HG}}
+        run: git push --force https://$HF_TOKEN@huggingface.co/spaces/arojaspa/huggingface-demo1 main
