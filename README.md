@@ -1,5 +1,5 @@
 ---
-title: arojaspa Huggingface CICD
+title: Course Deveops, DtaOps, MLOps - Module 1 - CICD 
 emoji: 🌖
 colorFrom: purple
 colorTo: purple
