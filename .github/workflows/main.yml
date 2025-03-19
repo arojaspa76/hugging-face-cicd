@@ -24,10 +24,10 @@ jobs:
 
       - name: Add git remote
         env:
-          HF_TOKEN: ${{ secrets.HG}}
-        run: git remote add space https://$HF_TOKEN@huggingface.co/spaces/arojaspa/huggingface-demo1
+          HF_TOKEN: ${{ secrets.HG }}
+        run: git remote add space https://arojaspa:$HF_TOKEN@huggingface.co/spaces/arojaspa/huggingface-demo1
           
       - name: Push to Hugging Face Space
         env:
-          HF_TOKEN: ${{ secrets.HG}}
-        run: git push --force https://$HF_TOKEN@huggingface.co/spaces/arojaspa/huggingface-demo1 main
+          HF_TOKEN: ${{ secrets.HG }}
+        run: git push --force https://arojaspa:$HF_TOKEN@huggingface.co/spaces/arojaspa/huggingface-demo1 main
