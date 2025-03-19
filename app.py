@@ -6,7 +6,7 @@ model = pipeline("summarization")
 
 
 def predict(prompt):
-    summary = model(prompt)[0]["summarize_text"]
+    summary = model(prompt)[0]["summary_text"]
     return summary
 
 with gr.Blocks() as demo:
