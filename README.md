@@ -1,5 +1,5 @@
 ---
-title: Course Deveops, DtaOps, MLOps - Module 1 - CICD 
+title: MLOps Specialization - Course Deveops, DataOps, MLOps - Module 1 - End to End MLOps HuggingFace Spaces
 emoji: 🌖
 colorFrom: purple
 colorTo: purple
